@@ -1,0 +1,210 @@
+﻿@page "/main"
+@using Microsoft.AspNetCore.Components.Web
+@namespace shop.Pages
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="~/" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <link href="css/site.css" rel="stylesheet" />
+    <link href="shop.styles.css" rel="stylesheet" />
+    <component type="typeof(HeadOutlet)" render-mode="ServerPrerendered" />
+
+  
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="&amp;quot;Order from your neighbors&amp;quot;​">
+    <meta name="description" content="">
+    <title>Main</title>
+    <link rel="stylesheet" href="shop/nicepage.css" media="screen">
+    <link rel="stylesheet" href="shop/Main.css" media="screen">
+
+    <meta name="generator" content="Nicepage 4.18.5, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="Main">
+    <meta property="og:type" content="website">
+    </head>
+    <body class="u-body u-xl-mode" data-lang="pl">
+    
+    <script type="application/ld+json">
+        {
+
+                "name": "",
+                "logo": "shop/images/g621aff9617574cd4957af232323b97622ba241c0a32df712a7e7246f5a8a2d347cf4b55e0cb3f33a2d165a0dd413cd9e_1280.jpg"
+        }</script>
+    <script class="u-script" type="text/javascript" src="shop/jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="shop/nicepage.js" defer=""></script>
+
+
+
+        <header class="u-clearfix u-header u-header" id="sec-55b6">
+            <div class="u-clearfix u-sheet u-sheet-1">
+                <a href="_Host.cshtml" class="u-image u-logo u-image-1" data-image-width="1280" data-image-height="853">
+                    <img src="shop/images/g621aff9617574cd4957af232323b97622ba241c0a32df712a7e7246f5a8a2d347cf4b55e0cb3f33a2d165a0dd413cd9e_1280.jpg" class="u-logo-image u-logo-image-1">
+                </a>
+                <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
+                    <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px; font-weight: 700; text-transform: uppercase;">
+                        <a class="u-button-style u-custom-active-border-color u-custom-border u-custom-border-color u-custom-borders u-custom-hover-border-color u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
+                            <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use></svg>
+                            <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+                                <g>
+                                    <rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+                                </g>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="u-custom-menu u-nav-container">
+                        <ul class="u-nav u-spacing-2 u-unstyled u-nav-1">
+                            <li class="u-nav-item">
+                                <a class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-button-style u-nav-link u-text-active-grey-90 u-text-grey-90 u-text-hover-grey-90" href="Main" style="padding: 10px 20px;">Main</a>
+                            </li>
+                            <li class="u-nav-item">
+                                <a class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-button-style u-nav-link u-text-active-grey-90 u-text-grey-90 u-text-hover-grey-90" href="Summary" style="padding: 10px 20px;">Summary</a>
+                            </li>
+                            <li class="u-nav-item">
+                                <a class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-button-style u-nav-link u-text-active-grey-90 u-text-grey-90 u-text-hover-grey-90" href="About-us.html" style="padding: 10px 20px;">About us</a>
+                            </li>
+                            <li class="u-nav-item">
+                                <a class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-button-style u-nav-link u-text-active-grey-90 u-text-grey-90 u-text-hover-grey-90" href="Contact.html" style="padding: 10px 20px;">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="u-custom-menu u-nav-container-collapse">
+                        <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+                            <div class="u-inner-container-layout u-sidenav-overflow">
+                                <div class="u-menu-close"></div>
+                                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
+                                    <li class="u-nav-item">
+                                        <a class="u-button-style u-nav-link" href="Main.cshtml">Main</a>
+                                    </li>
+                                    <li class="u-nav-item">
+                                        <a class="u-button-style u-nav-link" href="Summary.html">Summary</a>
+                                    </li>
+                                    <li class="u-nav-item">
+                                        <a class="u-button-style u-nav-link" href="About-us.html">About us</a>
+                                    </li>
+                                    <li class="u-nav-item">
+                                        <a class="u-button-style u-nav-link" href="Contact.html">Contact</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <section class="u-align-center u-clearfix u-grey-5 u-section-1" id="sec-621c">
+            <div class="u-clearfix u-sheet u-sheet-1">
+                <h1 class="u-text u-text-default u-text-1">
+                    "Order from your neighbors,Select product and then change amount in summary section."<span style="font-size: 4.5rem;"></span>
+                </h1>
+                <p class="u-text u-text-2">Try the best from your area.</p>
+                <a href="Main.html#sec-b256" class="u-border-none u-btn u-btn-rectangle u-button-style u-color-scheme-summer-time u-color-style-multicolor-1 u-custom-color-1 u-radius-0 u-btn-1">find more</a>
+            <img class="u-image u-image-round u-radius-10 u-image-1" src="shop/images/0d9946bd1506f9ab05cd9e4740383700ad7df90e1ff61fa10103d1f557f82e7d88b8678eb33f936b4b62c125af3dd33d6392aae2a8f8b11684b027_1280.jpg" alt="" 
+            data-image-width="1280" data-image-height="881">
+            </div>
+        </section>
+        
+        <section class="u-clearfix u-section-2" id="sec-b256">
+            <div class="u-clearfix u-sheet u-sheet-1">
+                <h4 class="u-align-center u-text u-text-default u-text-1">Products</h4>
+                <div class="u-clearfix u-layout-wrap u-layout-wrap-1">
+                    <div class="u-layout">
+                        <div class="u-layout-col">
+                            @*to cut in component*@
+                            
+                            <component type="typeof(Selectcomponent)" render-mode="ServerPrerendered"></component>
+                          
+                          @*  <div class="u-size-30">
+                                <div class="u-layout-row">
+                                    <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
+                                        <div class="u-container-layout u-container-layout-1">
+                                        <img class="u-image u-image-contain u-image-default u-image-1" src="shop/images/bbf23fa4c8be2ae6e8b693e439e945b91d5a0b90ea96efeadfe08fab63e94565be419935b4ed56d4ad69d8c4c767eaf26c6249016864afd1365a1a_1280.jpg" alt="" data-image-width="1280" data-image-height="720">
+                                            <a href="https://nicepage.com/c/about-us-html-templates" class="u-border-2 u-border-hover-palette-2-base u-border-palette-1-base u-btn u-btn-round u-button-style u-none u-radius-50 u-btn-1">
+                                                <span class="u-icon u-text-palette-1-base u-icon-1"><svg class="u-svg-content" viewBox="0 0 512 512" x="0px" y="0px" style="width: 1em; height: 1em;"><circle cx="181.333" cy="437.333" r="53.333"></circle><path d="M509.867,89.6c-2.133-2.133-4.267-4.267-8.533-4.267H96L85.333,29.867c-2.133-4.267-6.4-8.533-10.667-8.533h-64 C4.267,21.333,0,25.6,0,32s4.267,10.667,10.667,10.667h55.467l51.2,260.267c8.533,34.133,38.4,59.733,74.667,59.733h245.333 c6.4,0,10.667-4.267,10.667-10.667c0-6.4-4.267-10.667-10.667-10.667H192c-17.067,0-34.133-8.533-42.667-23.467L460.8,275.2 c4.267,0,8.533-4.267,8.533-8.533L512,96C512,96,512,91.733,509.867,89.6z"></path><circle cx="394.667" cy="437.333" r="53.333"></circle></svg><img></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
+                                        <div class="u-container-layout u-valign-top u-container-layout-2">
+                                        <img class="u-align-center u-image u-image-default u-image-2" src="shop/images/40db60186a96b6ebd0e3f2143ef28f10b396cd13ecac2bd00c06342478ea1bf6006199102e38716ce36005c151932743a3da604bc1fff5bead4063_1280.jpg" alt="" data-image-width="1280" data-image-height="857">
+                                            <a href="https://nicepage.com/c/about-us-html-templates" class="u-align-center u-border-2 u-border-hover-palette-2-base u-border-palette-1-base u-btn u-btn-round u-button-style u-none u-radius-50 u-btn-2">
+                                                <span class="u-icon u-text-palette-1-base u-icon-2"><svg class="u-svg-content" viewBox="0 0 512 512" x="0px" y="0px" style="width: 1em; height: 1em;"><circle cx="181.333" cy="437.333" r="53.333"></circle><path d="M509.867,89.6c-2.133-2.133-4.267-4.267-8.533-4.267H96L85.333,29.867c-2.133-4.267-6.4-8.533-10.667-8.533h-64 C4.267,21.333,0,25.6,0,32s4.267,10.667,10.667,10.667h55.467l51.2,260.267c8.533,34.133,38.4,59.733,74.667,59.733h245.333 c6.4,0,10.667-4.267,10.667-10.667c0-6.4-4.267-10.667-10.667-10.667H192c-17.067,0-34.133-8.533-42.667-23.467L460.8,275.2 c4.267,0,8.533-4.267,8.533-8.533L512,96C512,96,512,91.733,509.867,89.6z"></path><circle cx="394.667" cy="437.333" r="53.333"></circle></svg><img></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="u-size-30">
+                                <div class="u-layout-row">
+                                    <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-3">
+                                        <div class="u-container-layout u-container-layout-3">
+                                        <img class="u-image u-image-default u-image-3" src="shop/images/3461edd8f98a29a52c2d13940b8da1867a72f091ffca3de820e0b1e3f991e0d1b665aeecb0a5a090cb2f2a6a296121ca132523bf7d3a806a8080a7_1280.jpg" alt="" data-image-width="1280" data-image-height="853">
+                                            <a href="https://nicepage.com/c/about-us-html-templates" class="u-border-2 u-border-hover-palette-2-base u-border-palette-1-base u-btn u-btn-round u-button-style u-none u-radius-50 u-btn-3">
+                                                <span class="u-icon u-text-palette-1-base u-icon-3"><svg class="u-svg-content" viewBox="0 0 512 512" x="0px" y="0px" style="width: 1em; height: 1em;"><circle cx="181.333" cy="437.333" r="53.333"></circle><path d="M509.867,89.6c-2.133-2.133-4.267-4.267-8.533-4.267H96L85.333,29.867c-2.133-4.267-6.4-8.533-10.667-8.533h-64 C4.267,21.333,0,25.6,0,32s4.267,10.667,10.667,10.667h55.467l51.2,260.267c8.533,34.133,38.4,59.733,74.667,59.733h245.333 c6.4,0,10.667-4.267,10.667-10.667c0-6.4-4.267-10.667-10.667-10.667H192c-17.067,0-34.133-8.533-42.667-23.467L460.8,275.2 c4.267,0,8.533-4.267,8.533-8.533L512,96C512,96,512,91.733,509.867,89.6z"></path><circle cx="394.667" cy="437.333" r="53.333"></circle></svg><img></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-4">
+                                        <div class="u-container-layout u-container-layout-4">
+                                        <img class="u-align-center u-image u-image-default u-image-4" src="shop/images/88208b08493ef70cfca4cac34583373f0ece4cf742e0a9bcaf74d1bdae63557b238bd897133f9c3643ae9d82a4ab5dac6455b7d3fb88610b1321cf_1280.jpg" alt="" data-image-width="1280" data-image-height="851">
+                                            <a href="https://nicepage.com/c/about-us-html-templates" class="u-border-2 u-border-hover-palette-2-base u-border-palette-1-base u-btn u-btn-round u-button-style u-none u-radius-50 u-btn-4">
+                                                <span class="u-icon u-text-palette-1-base u-icon-4"><svg class="u-svg-content" viewBox="0 0 512 512" x="0px" y="0px" style="width: 1em; height: 1em;"><circle cx="181.333" cy="437.333" r="53.333"></circle><path d="M509.867,89.6c-2.133-2.133-4.267-4.267-8.533-4.267H96L85.333,29.867c-2.133-4.267-6.4-8.533-10.667-8.533h-64 C4.267,21.333,0,25.6,0,32s4.267,10.667,10.667,10.667h55.467l51.2,260.267c8.533,34.133,38.4,59.733,74.667,59.733h245.333 c6.4,0,10.667-4.267,10.667-10.667c0-6.4-4.267-10.667-10.667-10.667H192c-17.067,0-34.133-8.533-42.667-23.467L460.8,275.2 c4.267,0,8.533-4.267,8.533-8.533L512,96C512,96,512,91.733,509.867,89.6z"></path><circle cx="394.667" cy="437.333" r="53.333"></circle></svg><img></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>*@
+                            @*end*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-eb85">
+            <div class="u-clearfix u-sheet u-sheet-1">
+                <p class="u-small-text u-text u-text-variant u-text-1">Wojciech Paluszkiewicz - project</p>
+            </div>
+        </footer>
+        <section class="u-backlink u-clearfix u-grey-80">
+            <a class="u-link" href="https://nicepage.com/html-templates" target="_blank">
+                <span>Free HTML Templates</span>
+            </a>
+            <p class="u-text">
+                <span>created with</span>
+            </p>
+            <a class="u-link" href="https://nicepage.com/static-site-generator" target="_blank">
+                <span>Static Site Generator</span>
+            </a>.
+        </section>
+        
+
+    @*<div id="blazor-error-ui">
+        <environment include="Staging,Production">
+            An error has occurred. This application may no longer respond until reloaded.
+        </environment>
+        <environment include="Development">
+            An unhandled exception has occurred. See browser dev tools for details.
+        </environment>
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+    *@
+  
+    <script src="_framework/blazor.server.js"></script>
+</body>
+</html>
+
