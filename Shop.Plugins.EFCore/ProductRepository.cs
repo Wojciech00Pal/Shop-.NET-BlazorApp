@@ -1,5 +1,8 @@
 ﻿using shop.Plugins.EFCore;
-using Shop.CoreBusiness;
+
+using Microsoft.EntityFrameworkCore;
+using shop.CoreBusiness;
+using shop.UseCases.pluginInterfaces;
 
 namespace Shop.Plugins.EFCore
 {
@@ -10,7 +13,20 @@ namespace Shop.Plugins.EFCore
         {
             this.db = db;
         }
+        public async Task UpdateProducts(Products pr)
+        {
+            var prod = await db.Products.FindAsync(pr.ProductId);
+            if (prod != null)
+            {
+                prod.ProductName = pr.ProductName;
+                prod.Price = pr.Price;
+                prod.Quantity = pr.Quantity;
+                prod.Sum = pr.Sum;
 
+                await db.SaveChangesAsync();
+
+            }
+        }
         public async Task AddAsync(int productId, int quantity)
         {
             var prodStorage = await GetStorageProductById(productId);
@@ -46,6 +62,14 @@ namespace Shop.Plugins.EFCore
 
         }
 
+        public async Task<List<Products>> LoadProducts()
+        {
+            //return await this.db.Products.ToListAsync();
+              return await this.db.Products.Where
+              (x => x!=null).ToListAsync();//not shown these without  active==true
+            
+        }
+
 
 
         public async Task<Products> GetProductById(int id)
@@ -58,6 +82,5 @@ namespace Shop.Plugins.EFCore
         {
             return await this.db.ProductStorage.FindAsync(id);
         }
-
     }
 }

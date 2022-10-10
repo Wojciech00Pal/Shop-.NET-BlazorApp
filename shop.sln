@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shop", "shop\shop.csproj", "{AC7B52AC-50DC-4887-A4D1-C6A4824E3F20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "shop", "shop\shop.csproj", "{AC7B52AC-50DC-4887-A4D1-C6A4824E3F20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shop.CoreBusiness", "Shop.CoreBusiness\shop.CoreBusiness.csproj", "{F358B200-522D-4FD2-A7FB-7D2552042531}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "shop.CoreBusiness", "Shop.CoreBusiness\shop.CoreBusiness.csproj", "{F358B200-522D-4FD2-A7FB-7D2552042531}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shop.Plugins.EFCore", "Shop.Plugins.EFCore\shop.Plugins.EFCore.csproj", "{A676EA03-A042-46EC-BAAB-19CBCD58C01F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "shop.Plugins.EFCore", "Shop.Plugins.EFCore\shop.Plugins.EFCore.csproj", "{A676EA03-A042-46EC-BAAB-19CBCD58C01F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shop.UseCases", "shop.UseCases\shop.UseCases.csproj", "{7F650FFE-4E6B-4C57-ABDD-88492CFFF4DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "shop.UseCases", "shop.UseCases\shop.UseCases.csproj", "{7F650FFE-4E6B-4C57-ABDD-88492CFFF4DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

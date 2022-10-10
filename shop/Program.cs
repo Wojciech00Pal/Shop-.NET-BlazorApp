@@ -5,6 +5,7 @@ using shop.Data;
 using shop.Plugins.EFCore;
 using shop.UseCases;
 using shop.UseCases.Interfaces;
+using shop.UseCases.pluginInterfaces;
 using Shop.Plugins.EFCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,6 +22,11 @@ builder.Services.AddDbContext<shopContext>(options =>
 
 builder.Services.AddTransient<IAddProductUseCase, AddProductUseCase>();
 builder.Services.AddTransient<IProductRepository, ProductRepository>();
+builder.Services.AddTransient<ILoadProductsUseCase, LoadProductsUseCase>();
+builder.Services.AddTransient<IUpdateProductUseCase, UpdateProductUseCase>();
+
+builder.Services.AddTransient<IOrderRepository, OrderRepository>();
+builder.Services.AddTransient<IAddOrderUseCase, AddOrderUseCase>();
 
 var app = builder.Build();
 

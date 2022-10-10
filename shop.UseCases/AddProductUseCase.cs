@@ -1,5 +1,5 @@
 ﻿using shop.UseCases.Interfaces;
-using Shop.Plugins.EFCore;
+using shop.UseCases.pluginInterfaces;
 
 namespace shop.UseCases
 {
@@ -11,8 +11,6 @@ namespace shop.UseCases
         {
             productRepository = ProductRepository;
         }
-
-        
 
         public async Task ExecuteAsync(int id, int qty)
         {

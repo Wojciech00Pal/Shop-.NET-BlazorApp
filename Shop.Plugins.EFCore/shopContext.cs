@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Shop.CoreBusiness;
+using shop.CoreBusiness;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,12 +18,17 @@ namespace shop.Plugins.EFCore
         public DbSet<ProductStorage> ProductStorage { get; set; }
         public DbSet<Products> Products { get; set; }
 
+        public DbSet<Order> Orders { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ProductStorage>()
                 .HasKey(x => new { x.StorageId});
             modelBuilder.Entity<Products>()
                 .HasKey(x => new { x.ProductId });
+
+            modelBuilder.Entity<Order>()
+                .HasKey(x => new { x.OrderId });
 
             modelBuilder.Entity<ProductStorage>().HasData(
                 new ProductStorage { StorageId=1, StorageQuantity=1000, Name="Apple",Price=5.5 },
