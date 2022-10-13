@@ -25,8 +25,10 @@ builder.Services.AddTransient<IProductRepository, ProductRepository>();
 builder.Services.AddTransient<ILoadProductsUseCase, LoadProductsUseCase>();
 builder.Services.AddTransient<IUpdateProductUseCase, UpdateProductUseCase>();
 
+
 builder.Services.AddTransient<IOrderRepository, OrderRepository>();
 builder.Services.AddTransient<IAddOrderUseCase, AddOrderUseCase>();
+builder.Services.AddTransient<ILoadOrderUseCase, LoadOrderUseCase>();
 
 var app = builder.Build();
 

@@ -36,7 +36,7 @@ namespace shop.Plugins.EFCore
                 new ProductStorage { StorageId=3, StorageQuantity = 1000, Name = "Peach",Price=6 },
                 new ProductStorage { StorageId=4, StorageQuantity = 1000, Name = "Tomatoes",Price=8}
                 );
-            modelBuilder.Entity<Products>();
+           // modelBuilder.Entity<Products>();
             
      
         }

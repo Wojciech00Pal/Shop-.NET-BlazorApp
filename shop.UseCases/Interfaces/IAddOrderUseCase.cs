@@ -4,6 +4,6 @@ namespace shop.UseCases.Interfaces
 {
     public interface IAddOrderUseCase
     {
-        Task ExecuteAsync(List<Products>? prods);
+        Task ExecuteAsync(List<Products>? prods,double price);
     }
 }

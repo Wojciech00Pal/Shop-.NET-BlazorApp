@@ -38,7 +38,7 @@
                             </td>
                         
                             <td class="u-border-1 u-border-grey-30 u-table-cell">
-                                <input type="number"
+                                <input type="number" min="0"
                                   @bind-value="prod.Quantity" 
                                 />
                             </td>
@@ -60,7 +60,7 @@
         <h6 class="u-text u-text-default u-text-1">
             Price: @this.Price.ToString("c") <span style="font-size: 1.875rem;"></span>
         </h6>
-        <a @onclick="async()=>await AddOrder(this.listProducts)"
+        <a @onclick="async()=>await AddOrder(this.listProducts,this.Price)"
             class="u-border-2 u-border-hover-palette-2-base u-border-palette-1-base u-btn u-btn-round u-button-style u-none u-radius-50 u-btn-1">
             <span class="u-icon u-text-palette-1-base u-icon-1">
                 <svg class="u-svg-content" viewBox="0 0 512 512" x="0px" y="0px" style="width: 1em; height: 1em;">
@@ -84,9 +84,12 @@
         await LoadProducts();
     }
 
-    public async Task AddOrder(List<Products>? products)
+    public async Task AddOrder(List<Products>? products, double price)
     {
-       await AddOrderUseCase.ExecuteAsync(products);
+        if (price > 0)
+        {
+            await AddOrderUseCase.ExecuteAsync(products,price);
+        }
     }
 
 

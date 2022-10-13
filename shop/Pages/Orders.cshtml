@@ -1,4 +1,4 @@
-﻿@page "/Contact"
+﻿@page "/Orders"
 @using Microsoft.AspNetCore.Components.Web
 @namespace shop.Pages
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
@@ -13,9 +13,13 @@
     <meta charset="utf-8">
     <meta name="keywords" content="Wojciech Paluszkiewicz">
     <meta name="description" content="">
-    <title>Contact</title>
+    <title>Orders</title>
     <link rel="stylesheet" href="shop/nicepage.css" media="screen">
-    <link rel="stylesheet" href="shop/Contact.css" media="screen">
+    <link rel="stylesheet" href="shop/Orders.css" media="screen">
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+
+    <component type="typeof(HeadOutlet)" render-mode="ServerPrerendered" />
+
     <script class="u-script" type="text/javascript" src="shop/jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="shop/nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 4.18.5, nicepage.com">
@@ -29,14 +33,15 @@
                 "logo": "images/g621aff9617574cd4957af232323b97622ba241c0a32df712a7e7246f5a8a2d347cf4b55e0cb3f33a2d165a0dd413cd9e_1280.jpg"
         }</script>
     <meta name="theme-color" content="#478ac9">
-    <meta property="og:title" content="Contact">
+    <meta property="og:title" content="Orders">
     <meta property="og:type" content="website">
 </head>
 
 <body class="u-body u-xl-mode" data-lang="pl">
+    
     <header class="u-clearfix u-header u-header" id="sec-55b6">
         <div class="u-clearfix u-sheet u-sheet-1">
-            <a href="_Host.cshtml" class="u-image u-logo u-image-1" data-image-width="1280" data-image-height="853">
+            <a href="main" class="u-image u-logo u-image-1" data-image-width="1280" data-image-height="853">
                 <img src="shop/images/g621aff9617574cd4957af232323b97622ba241c0a32df712a7e7246f5a8a2d347cf4b55e0cb3f33a2d165a0dd413cd9e_1280.jpg" class="u-logo-image u-logo-image-1">
             </a>
             <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
@@ -64,6 +69,9 @@
                         <li class="u-nav-item">
                             <a class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-button-style u-nav-link u-text-active-grey-90 u-text-grey-90 u-text-hover-grey-90" href="Contact" style="padding: 10px 20px;">Contact</a>
                         </li>
+                        <li class="u-nav-item">
+                            <a class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-button-style u-nav-link u-text-active-grey-90 u-text-grey-90 u-text-hover-grey-90" href="Orders" style="padding: 10px 20px;">Orders</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="u-custom-menu u-nav-container-collapse">
@@ -83,6 +91,9 @@
                                 <li class="u-nav-item">
                                     <a class="u-button-style u-nav-link" href="Contact">Contact</a>
                                 </li>
+                                <li class="u-nav-item">
+                                    <a class="u-button-style u-nav-link" href="Orders">Orders</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -91,41 +102,14 @@
             </nav>
         </div>
     </header>
-    <section class="u-clearfix u-section-1" id="sec-66d6">
+
+    <section class="u-align-center u-clearfix u-section-1" id="sec-5656">
         <div class="u-clearfix u-sheet u-sheet-1">
-            <div class="u-clearfix u-expanded-width u-gutter-0 u-layout-wrap u-layout-wrap-1">
-                <div class="u-layout" style="">
-                    <div class="u-layout-row" style="">
-                        <div class="u-align-center u-container-style u-layout-cell u-left-cell u-size-30 u-size-xs-60 u-white u-layout-cell-1" src="">
-                            <div class="u-container-layout u-container-layout-1">
-                                <span class="u-icon u-icon-circle u-palette-1-base u-icon-1">
-                                    <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 52.966 52.966" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-bae1"></use></svg>
-                                    <svg class="u-svg-content" viewBox="0 0 52.966 52.966" x="0px" y="0px" id="svg-bae1" style="enable-background:new 0 0 52.966 52.966;">
-                                        <circle style="fill:#57ABC1;" cx="21.983" cy="21" r="20"></circle>
-                                        <line style="fill:none;stroke:#556080;stroke-width:2;stroke-linecap:round;stroke-miterlimit:10;" x1="35.437" y1="35.798" x2="50.983" y2="51.966"></line>
-                                        <path style="fill:#7CCBD8;" d="M3.002,27.253c0.848,2.582,2.24,5.018,4.167,7.146L35.382,6.186
-	c-2.129-1.928-4.564-3.319-7.146-4.167L3.002,27.253z"></path>
-                                        <path style="fill:#556080;" d="M21.983,42c-11.58,0-21-9.42-21-21s9.42-21,21-21s21,9.42,21,21S33.562,42,21.983,42z M21.983,2
-	c-10.477,0-19,8.523-19,19s8.523,19,19,19s19-8.523,19-19S32.459,2,21.983,2z"></path>
-                                    </svg>
-
-
-                                </span>
-                                <h2 class="u-text u-text-default u-text-1">Wojciech Paluszkiewicz</h2>
-                                <p class="u-text u-text-2">This small shop is made with C#. Find me on my github.</p>
-                                <a href="https://github.com/Wojciech00Pal" target="_blank" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-btn-1"> https://github.com/Wojciech00Pal</a>
-                            </div>
-                        </div>
-                        <div class="u-align-center u-container-style u-image u-layout-cell u-right-cell u-size-30 u-size-xs-60 u-image-1" src="" data-image-width="5760" data-image-height="3840">
-                            <div class="u-container-layout u-valign-middle u-container-layout-2" src=""></div>
-                        </div>
-                    </div>
-                </div>
+            <div class="u-expanded-width u-table u-table-responsive u-table-1">
+                <component type="typeof(OrdersComponent)" render-mode="ServerPrerendered"></component>
+          
             </div>
         </div>
-    </section>
-    <section class="u-align-center u-clearfix u-section-2" id="sec-50b8">
-        <div class="u-align-left u-clearfix u-sheet u-sheet-1"></div>
     </section>
 
 
@@ -134,17 +118,8 @@
             <p class="u-small-text u-text u-text-variant u-text-1">Wojciech Paluszkiewicz - project</p>
         </div>
     </footer>
-    <section class="u-backlink u-clearfix u-grey-80">
-        <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
-            <span>Website Templates</span>
-        </a>
-        <p class="u-text">
-            <span>created with</span>
-        </p>
-        <a class="u-link" href="" target="_blank">
-            <span>Website Builder Software</span>
-        </a>.
-    </section>
+
+    <script src="~/_framework/blazor.server.js"></script>
 
 </body>
 </html>

@@ -14,9 +14,11 @@ namespace shop.CoreBusiness
         
         public List<Products>? ProductList { get; set; }
 
-        public DateTime Date { get; set; }    
+        public DateTime Date { get; set; }
 
-        bool done { get; set; }
+        public double Price { get; set; }
+
+        public bool done { get; set; } = false;
 
 
     }

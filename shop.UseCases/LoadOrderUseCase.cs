@@ -1,7 +1,6 @@
 ﻿using shop.CoreBusiness;
 using shop.Plugins.EFCore;
 using shop.UseCases.Interfaces;
-using shop.UseCases.pluginInterfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,18 +9,18 @@ using System.Threading.Tasks;
 
 namespace shop.UseCases
 {
-    public class AddOrderUseCase : IAddOrderUseCase
+    public class LoadOrderUseCase : ILoadOrderUseCase
     {
         private readonly IOrderRepository orderRepository;
 
-        public AddOrderUseCase(IOrderRepository orderRepository)
+        public LoadOrderUseCase(IOrderRepository orderRepository)
         {
             this.orderRepository = orderRepository;
         }
-        public async Task ExecuteAsync(List<Products>? prods,double price)
-        {
-            await orderRepository.AddOrder(prods,price);
 
+        public async Task <List<Order>> EcecuteAsync()
+        {
+            return await orderRepository.LoadOrders();
         }
     }
 }

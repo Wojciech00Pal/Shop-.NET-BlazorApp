@@ -6,6 +6,8 @@ namespace shop.CoreBusiness
     {
 
         public int ProductId { get; set; }
+
+        public int OrderId { get; set; } = 0;
         [Required]
         public string ProductName { get; set; } = string.Empty;
 
@@ -17,7 +19,6 @@ namespace shop.CoreBusiness
 
         public double? Sum { get; set; }
 
-        
-
+  
     }
 }

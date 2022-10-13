@@ -50,66 +50,9 @@
         </div>
     </div>
 </div>
-@*<div class="u-expanded-width u-table u-table-responsive u-table-1">
 
-            <table class="u-table-entity u-table-entity-1">
-                <colgroup>
-                    <col width="25%">
-                    <col width="25%">
-                    <col width="25%">
-                    <col width="25%">
-                </colgroup>
-                <thead class="u-palette-4-base u-table-header u-table-header-1">
-                    <tr style="height: 29px;">
-                        <th class="u-border-1 u-border-palette-4-base u-table-cell">Product name</th>
-                        <th class="u-border-1 u-border-palette-4-base u-table-cell">Price</th>
-                        <th class="u-border-1 u-border-palette-4-base u-table-cell">Amount</th>
-                        <th class="u-border-1 u-border-palette-4-base u-table-cell">Sum</th>
-
-                    </tr>
-                </thead>
-        @if (listProducts != null)
-        {
-
-                        <tbody class="u-table-body">
-                @foreach (Products prod in listProducts)
-                {
-                                <tr style="height: 48px;">
-                                    <td class="u-border-1 u-border-grey-30 u-first-column u-grey-5 u-table-cell u-table-cell-5">
-                            @prod.ProductName
-                                    </td>
-                                    <td class="u-border-1 u-border-grey-30 u-table-cell">
-                            @prod.Price
-                                    </td>
-
-                                    <td class="u-border-1 u-border-grey-30 u-table-cell">
-                                        <input type="number"
-                                  @bind-value="prod.Quantity" 
-                                />
-                                    </td>
-                                    <td class="u-border-1 u-border-grey-30 u-table-cell">
-
-                                            <button class="btn btn-primary" @onclick="(async()=>await UpdateProd(prod))">
-                                            Update</button>
-
-                                    </td>
-                                </tr>
-
-
-                                <button @onclick="()=>Delete()">X</button>
-
-                }
-                        </tbody>
-        }
-            </table>
-        </div>
-        *@
 @code {
 
-    private int qty;
-
-
-    
     private async Task AddProduct(int id)
     {
        await AddProductUseCase.ExecuteAsync(id, 1);
