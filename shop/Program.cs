@@ -20,15 +20,20 @@ builder.Services.AddDbContext<shopContext>(options =>
     options.UseInMemoryDatabase("shop");
 });
 
+//products
 builder.Services.AddTransient<IAddProductUseCase, AddProductUseCase>();
 builder.Services.AddTransient<IProductRepository, ProductRepository>();
 builder.Services.AddTransient<ILoadProductsUseCase, LoadProductsUseCase>();
 builder.Services.AddTransient<IUpdateProductUseCase, UpdateProductUseCase>();
 
-
+//orders
 builder.Services.AddTransient<IOrderRepository, OrderRepository>();
 builder.Services.AddTransient<IAddOrderUseCase, AddOrderUseCase>();
 builder.Services.AddTransient<ILoadOrderUseCase, LoadOrderUseCase>();
+
+//sold list
+builder.Services.AddTransient<ISoldItemsRepository, SoldItemsRepository>();
+builder.Services.AddTransient<IAddProdandOrderIdtoSoldUseCase, AddProdandOrderIdtoSoldUseCase>();
 
 var app = builder.Build();
 

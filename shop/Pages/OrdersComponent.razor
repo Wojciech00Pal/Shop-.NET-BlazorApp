@@ -1,5 +1,6 @@
 ﻿@inject ILoadOrderUseCase LoadOrderUseCase
 @inject ILoadProductsUseCase LoadProductsUseCase
+@inject ISoldItemsRepository SoldItemsRepository
 
 <table class="u-table-entity u-table-entity-1">
     <colgroup>
@@ -24,7 +25,7 @@
         <tr style="height: 65px;">
             <td class="u-border-1 u-border-grey-30 u-table-cell">@ord.OrderId</td>
            <td class="u-border-1 u-border-grey-30 u-table-cell">
-               <button class="btn btn-primary" @onclick="(()=>LoadProd(ord.ProductList))">Show products</button>
+               <button class="btn btn-primary"  >Show products</button>
             </td>
             <td class="u-border-1 u-border-grey-30 u-table-cell">@ord.Price</td>
      
@@ -120,3 +121,4 @@
         this.Orders = orders.ToList();
     }
 }
+

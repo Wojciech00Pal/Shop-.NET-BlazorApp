@@ -20,15 +20,31 @@ namespace shop.Plugins.EFCore
 
         public DbSet<Order> Orders { get; set; }
 
+        public DbSet<SoldItems> SoldItems { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+          
+
             modelBuilder.Entity<ProductStorage>()
                 .HasKey(x => new { x.StorageId});
+
             modelBuilder.Entity<Products>()
                 .HasKey(x => new { x.ProductId });
 
+
             modelBuilder.Entity<Order>()
                 .HasKey(x => new { x.OrderId });
+
+            modelBuilder.Entity<SoldItems>()
+            .HasKey(x => new { x.id });
+
+
+
+
+
+
+
 
             modelBuilder.Entity<ProductStorage>().HasData(
                 new ProductStorage { StorageId=1, StorageQuantity=1000, Name="Apple",Price=5.5 },

@@ -52,14 +52,10 @@
 </div>
 
 @code {
-
     private async Task AddProduct(int id)
     {
        await AddProductUseCase.ExecuteAsync(id, 1);
     }
-
-
-
     ///
     public List<Products>? listProducts;
 
@@ -71,10 +67,8 @@
         //przeliczanie amount i update database
         prod.Sum = prod.Quantity * prod.Price;
         await UpdateProductUseCase.ExecuteAsync(prod);
-
     }
 
-    
     private async Task LoadProducts()
     {
         var list = await loadProductsUseCase.ExecuteAsync();

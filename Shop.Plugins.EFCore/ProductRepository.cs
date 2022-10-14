@@ -24,7 +24,6 @@ namespace Shop.Plugins.EFCore
                 prod.Sum = pr.Sum;
 
                 await db.SaveChangesAsync();
-
             }
         }
         public async Task AddAsync(int productId, int quantity)
@@ -66,11 +65,8 @@ namespace Shop.Plugins.EFCore
         {
             //return await this.db.Products.ToListAsync();
               return await this.db.Products.Where
-              (x => x!=null).ToListAsync();//not shown these without  active==true
-            
+              (x => x!=null).ToListAsync();//not shown these without  active==true            
         }
-
-
 
         public async Task<Products> GetProductById(int id)
         {

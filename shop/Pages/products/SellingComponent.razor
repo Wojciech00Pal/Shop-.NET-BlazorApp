@@ -2,6 +2,7 @@
 @inject IUpdateProductUseCase UpdateProductUseCase
 @inject IProductRepository ProductRepository
 @inject IAddOrderUseCase AddOrderUseCase
+@inject IAddProdandOrderIdtoSoldUseCase AddProdandOrderIdtoSoldUseCase
 
 <div class="u-align-center u-clearfix u-section-1" id="sec-ccd4">
     <div class="u-clearfix u-sheet u-sheet-1">
@@ -70,14 +71,14 @@
     </div>
 </div>
 
-
-
-
 @code {
     public double Price=0;
     public List<Products>? listProducts;
+    private readonly shopContext db;
+
 
     //private double price{ get; set; }
+
 
     protected override async Task OnInitializedAsync()
     {
@@ -89,6 +90,10 @@
         if (price > 0)
         {
             await AddOrderUseCase.ExecuteAsync(products,price);
+
+            var  id = db.Orders.Count();
+            await AddProdandOrderIdtoSoldUseCase.EcecuteAsync(products, price, id);
+
         }
     }
 
@@ -106,17 +111,18 @@
     private void computePrice(List<Products> list)
     {
         this.Price = 0;
-        foreach(Products el in list)
+        foreach (Products el in list)
         {
-            this.Price += (double)el.Sum;
+            if (el.Sum != null)
+            {
+                this.Price += (double)el.Sum;
+            }
         }
-        
     }
+
     private async Task LoadProducts()
     {
-     
         var list= await loadProductsUseCase.ExecuteAsync();
         this.listProducts = list.ToList();
     }
-  
 }

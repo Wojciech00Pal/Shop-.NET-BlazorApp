@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using shop.CoreBusiness;
+using shop.UseCases.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +11,10 @@ namespace shop.Plugins.EFCore
 {
     public class OrderRepository : IOrderRepository
     {
+        
         private readonly shopContext db;
         private List<Order> Smartorders;
+        
         public OrderRepository(shopContext db)
         {
             this.db = db;
@@ -19,27 +22,22 @@ namespace shop.Plugins.EFCore
 
         public async Task AddOrder(List<Products>? products,double price)
         {
-            var order = new Order
+            if (products != null)
             {
-                OrderId = GetId(),
-                ProductList = products,
-                Price = price,
-                Date = DateTime.Now
-            };
-
-            await db.Orders.AddAsync(order);
-            await db.SaveChangesAsync();
-            this.Smartorders = await this.db.Orders.ToListAsync();
-    
-
+                var order = new Order
+                {
+                    Price = price,
+                    Date = DateTime.Now
+                };
+                //await AddSoldItems(products, order.Price, order.OrderId);
+                await db.Orders.AddAsync(order);
+                await db.SaveChangesAsync();
+               // this.Smartorders = await this.db.Orders.ToListAsync();
+               var count = await db.Orders.CountAsync();
+                
+            }
         }
 
-        public int GetId()
-        {
-            int val = 1 + this.db.Orders.Count();
-            return val;
-            var test = LoadOrders();
-        }
 
         public async Task<List<Order>> LoadOrders()
         {
