@@ -4,6 +4,6 @@ namespace shop.UseCases.Interfaces
 {
     public interface ILoadSoldItemsUseCase
     {
-        Task<List<SoldItems>> ExecuteAsync();
+        Task<List<SoldItems>> ExecuteAsync(int id);
     }
 }

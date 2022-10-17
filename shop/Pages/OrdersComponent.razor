@@ -1,8 +1,10 @@
 ﻿@inject ILoadOrderUseCase LoadOrderUseCase
 @inject ILoadProductsUseCase LoadProductsUseCase
-@inject ISoldItemsRepository SoldItemsRepository
+@inject ILoadSoldItemsUseCase LoadSoldItemsUseCase
+@inject IGetOrderByIdUseCase GetOrderByIdUseCase
+@inject NavigationManager nav
 
-<table class="u-table-entity u-table-entity-1">
+<table class="u-table-entity u-table-entity-1" id="up">
     <colgroup>
         <col width="20%">
         <col width="20%">
@@ -25,28 +27,30 @@
         <tr style="height: 65px;">
             <td class="u-border-1 u-border-grey-30 u-table-cell">@ord.OrderId</td>
            <td class="u-border-1 u-border-grey-30 u-table-cell">
-               <button class="btn btn-primary"  >Show products</button>
+               <button class="btn btn-primary" href="#down" @onclick="()=>show_prods(ord.OrderId)" >Show products</button>
             </td>
             <td class="u-border-1 u-border-grey-30 u-table-cell">@ord.Price</td>
      
             <td class="u-border-1 u-border-grey-30 u-table-cell">@ord.Date</td>
             <td class="u-border-1 u-border-grey-30 u-table-cell">
                 @if(!ord.done){
-                   <button @onclick="()=>hide()" class="btn btn-success">Done</button>
+                   <button @onclick="()=>change_todo(ord.done,ord.OrderId)" class="btn btn-success">Done</button>
                 }
                 else
                 {
-                        <button class="btn btn-danger">to do</button>
+                        <button @onclick="()=>change_todo(ord.done,ord.OrderId)"
+                            class="btn btn-danger">to do</button>
                 }
             </td>
         </tr>
         }
     </tbody>
 </table>
-     
-@if(this.show_products)
+ <br/>
+
+@if(this.products_visible)
 {
-<table class="u-table-entity u-table-entity-1" id="products_list">
+<table class="u-table-entity u-table-entity-1" id="down">
     <colgroup>
         <col width="25%">
         <col width="25%">
@@ -63,10 +67,10 @@
         </tr>
     </thead>
 
-    @if (this.listProducts != null)
+    @if (this.SoldProducts != null)
     {
         <tbody class="u-table-body">
-            @foreach (Products prod in this.listProducts)
+            @foreach (SoldItems prod in this.SoldProducts)
             {
                 <tr style="height: 48px;">
                     <td class="u-border-1 u-border-grey-30 u-first-column u-grey-5 u-table-cell u-table-cell-5">
@@ -77,14 +81,15 @@
                     </td>
 
                     <td class="u-border-1 u-border-grey-30 u-table-cell">
-                         @prod.Quantity"
+                         @prod.Quantity
                     </td>
                     <td class="u-border-1 u-border-grey-30 u-table-cell">
                         @prod.Sum
                     </td>
                 </tr>
             }
-            <button class="btn btn-primary" @onclick="()=>hide()">Hide</button>
+            
+            <button href="#up" class="btn btn-primary" @onclick="()=>hide()">Hide</button>
 
         </tbody>
     }
@@ -93,28 +98,46 @@
 
 @code {
     List<Order>? Orders;
-    public List<Products>? listProducts;
-    bool show_products;
+    shopContext db;
+    public List<SoldItems> SoldProducts;
+    bool products_visible=false;
 
     protected override async Task OnInitializedAsync()
     {
         await LoadOrders();
     }
 
-    private void LoadProd(List<Products>? products)
+    private async Task change_todo(bool orderDone,int ordId)
     {
-      
+        //get my order and then change button
+        var ord = await GetOrderByIdUseCase.ExecuteAsync(ordId);
+        ord.done = !orderDone;
+        nav.NavigateTo("#up");
+    }
+    /*
+    private void LoadProd(List<Products>? products)
+     {
+
      //   this.Orders = orders.ToList();
         //this.ShouldRender();
        this.listProducts =  products.ToList();
        this.show_products = true;
 
     }
+    */
+
     private void hide()
     {
-        this.show_products = false;
+        this.products_visible = false;
     }
 
+    private async Task show_prods(int OrderId)
+    {
+        var sold = await LoadSoldItemsUseCase.ExecuteAsync(OrderId);
+        this.SoldProducts = sold;
+        this.products_visible = true;
+    }
+    
     private async Task LoadOrders()
     {
         var orders = await LoadOrderUseCase.EcecuteAsync();

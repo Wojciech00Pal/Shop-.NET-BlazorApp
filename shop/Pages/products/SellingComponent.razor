@@ -3,6 +3,8 @@
 @inject IProductRepository ProductRepository
 @inject IAddOrderUseCase AddOrderUseCase
 @inject IAddProdandOrderIdtoSoldUseCase AddProdandOrderIdtoSoldUseCase
+@inject NavigationManager nav
+@inject IGetOrderByIdUseCase GetOrderByIdUseCase
 
 <div class="u-align-center u-clearfix u-section-1" id="sec-ccd4">
     <div class="u-clearfix u-sheet u-sheet-1">
@@ -76,10 +78,7 @@
     public List<Products>? listProducts;
     private readonly shopContext db;
 
-
     //private double price{ get; set; }
-
-
     protected override async Task OnInitializedAsync()
     {
         await LoadProducts();
@@ -87,16 +86,28 @@
 
     public async Task AddOrder(List<Products>? products, double price)
     {
+        //var id = db.Orders.Count();
         if (price > 0)
         {
-            await AddOrderUseCase.ExecuteAsync(products,price);
+            await Task.WhenAll(
+            AddOrderUseCase.ExecuteAsync(products, price), 
+            AddProdandOrderIdtoSoldUseCase.EcecuteAsync(products, price)
+        );
+            
+            this.listProducts = null;
+            nav.NavigateTo("main");
 
-            var  id = db.Orders.Count();
-            await AddProdandOrderIdtoSoldUseCase.EcecuteAsync(products, price, id);
-
+    //        AddtoSoldItem(products,price);
+    //         await AddOrderUseCase.ExecuteAsync(products,price);
         }
     }
-
+    
+    public async Task AddtoSoldItem(List<Products>? products, double price)
+    {
+        var id = db.Orders.Count();
+        await AddProdandOrderIdtoSoldUseCase.EcecuteAsync(products, price);
+        nav.NavigateTo("main");
+    }
 
     public async Task UpdateProd(Products prod)
     {

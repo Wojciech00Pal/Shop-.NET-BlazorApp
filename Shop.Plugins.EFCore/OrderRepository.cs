@@ -38,6 +38,10 @@ namespace shop.Plugins.EFCore
             }
         }
 
+        public async Task<Order> GetOrderbyId(int ordId)
+        {
+            return await this.db.Orders.FindAsync(ordId);
+        }
 
         public async Task<List<Order>> LoadOrders()
         {

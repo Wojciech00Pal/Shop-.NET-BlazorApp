@@ -18,9 +18,9 @@ namespace shop.UseCases
             this.soldItemsRepository = soldItemsRepository;
         }
 
-        public async Task<List<SoldItems>> ExecuteAsync()
+        public async Task<List<SoldItems>> ExecuteAsync(int id)
         {
-            return await soldItemsRepository.LoadSoldItems();
+            return await soldItemsRepository.LoadSoldItems(id);
         }
     }
 }

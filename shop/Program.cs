@@ -30,10 +30,12 @@ builder.Services.AddTransient<IUpdateProductUseCase, UpdateProductUseCase>();
 builder.Services.AddTransient<IOrderRepository, OrderRepository>();
 builder.Services.AddTransient<IAddOrderUseCase, AddOrderUseCase>();
 builder.Services.AddTransient<ILoadOrderUseCase, LoadOrderUseCase>();
+builder.Services.AddTransient<IGetOrderByIdUseCase, GetOrderByIdUseCase>();
 
 //sold list
 builder.Services.AddTransient<ISoldItemsRepository, SoldItemsRepository>();
 builder.Services.AddTransient<IAddProdandOrderIdtoSoldUseCase, AddProdandOrderIdtoSoldUseCase>();
+builder.Services.AddTransient<ILoadSoldItemsUseCase, LoadSoldItemsUseCase>();
 
 var app = builder.Build();
 

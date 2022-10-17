@@ -20,10 +20,10 @@ namespace shop.UseCases
         }
 
 
-        public async Task EcecuteAsync(List<Products>? products, double price, int orderId)
+        public async Task EcecuteAsync(List<Products>? products, double price)
         {
             //set order_id to products
-            await soldItemsRepository.AddSoldItems(products, price, orderId);
+            await soldItemsRepository.AddSoldItems(products, price);
         }
 
     }

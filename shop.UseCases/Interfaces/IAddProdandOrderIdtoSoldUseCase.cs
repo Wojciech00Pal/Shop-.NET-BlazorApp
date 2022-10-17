@@ -4,6 +4,6 @@ namespace shop.UseCases.Interfaces
 {
     public interface IAddProdandOrderIdtoSoldUseCase
     {
-        Task EcecuteAsync(List<Products>? products, double price, int orderId);
+        Task EcecuteAsync(List<Products>? products, double price);
     }
 }

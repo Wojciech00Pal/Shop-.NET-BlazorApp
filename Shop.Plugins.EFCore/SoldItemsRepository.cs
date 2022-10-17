@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using shop.Plugins.EFCore;
-
 using shop.CoreBusiness;
 using System;
 using System.Collections.Generic;
@@ -20,7 +19,7 @@ namespace shop.Plugins.EFCore
             this.db = db;
         }
 
-        public async Task AddSoldItems(List<Products>? products, double price, int orderId)
+        public async Task AddSoldItems(List<Products>? products, double price)
         {
 
             foreach (Products prod in products)
@@ -29,7 +28,7 @@ namespace shop.Plugins.EFCore
                 {
                     var lol = new SoldItems
                     {
-                        OrdId = orderId,
+                        OrdId = db.Orders.Count(),
                         ProdId = prod.ProductId,
                         Price = price,
                         ProductName = prod.ProductName,
@@ -44,14 +43,19 @@ namespace shop.Plugins.EFCore
                 //  await db.SoldItems.AddAsync(lol);
 
             }
+            //  db.Products.RemoveRange();
+            // db.Remove(db.Products);
+            db.Products.FromSqlRaw("TRUNCATE TABLE Products");
+            //context.Database.ExecuteSqlRaw("TRUNCATE TABLE [TableName]");
+            //nie usuwa sie
             await db.SaveChangesAsync();
 
-            var test = LoadSoldItems();
         }
 
-        public async Task <List<SoldItems>> LoadSoldItems()
+        public async Task <List<SoldItems>> LoadSoldItems(int id)
         {
-            var sold = await db.SoldItems.ToListAsync();
+            var sold = await db.SoldItems.Where(x=>x.OrdId==id).
+                ToListAsync();
             return sold;
            
         }
