@@ -8,60 +8,70 @@
 
 <div class="u-align-center u-clearfix u-section-1" id="sec-ccd4">
     <div class="u-clearfix u-sheet u-sheet-1">
+
+      @if(this.bought)
+      {
+          <h3 style="color:green;border-block-style:groove">Your order is added, refresh page to
+              do it again
+          </h3>
+      }
+      @if (this.listProducts!=null &&this.listProducts.Count()>0)
+        {
         <div class="u-expanded-width u-table u-table-responsive u-table-1">
-            <h4 class="u-align-center ">Products</h4>
-            <table class="u-table-entity u-table-entity-1">
-                <colgroup>
-                    <col width="20%">
-                    <col width="20%">
-                    <col width="20%">
-                    <col width="20%">
-                    <col width="20%" />
-                </colgroup>
-                <thead class="u-palette-4-base u-table-header u-table-header-1">
-                    <tr style="height: 29px;">
-                        <th class="u-border-1 u-border-palette-4-base u-table-cell">Product name</th>
-                        <th class="u-border-1 u-border-palette-4-base u-table-cell">Price</th>
-                        <th class="u-border-1 u-border-palette-4-base u-table-cell">Amount</th>
-                        <th class="u-border-1 u-border-palette-4-base u-table-cell">Sum</th>
-                        <th class="u-border-1 u-border-palette-4-base u-table-cell">Update</th>
-                    </tr>
-                </thead>
-                @if (listProducts != null)
-                {
+     
+                <h4 class="u-align-center ">Products</h4>
+                <table class="u-table-entity u-table-entity-1">
+                    <colgroup>
+                        <col width="20%">
+                        <col width="20%">
+                        <col width="20%">
+                        <col width="20%">
+                        <col width="20%" />
+                    </colgroup>
+                    <thead class="u-palette-4-base u-table-header u-table-header-1">
+                        <tr style="height: 29px;">
+                            <th class="u-border-1 u-border-palette-4-base u-table-cell">Product name</th>
+                            <th class="u-border-1 u-border-palette-4-base u-table-cell">Price</th>
+                            <th class="u-border-1 u-border-palette-4-base u-table-cell">Amount</th>
+                            <th class="u-border-1 u-border-palette-4-base u-table-cell">Sum</th>
+                            <th class="u-border-1 u-border-palette-4-base u-table-cell">Update</th>
+                        </tr>
+                    </thead>
+
                     <tbody class="u-table-body">
-                        @foreach(Products prod in listProducts)
-                       {
-                        <tr style="height: 48px;">
-                            <td class="u-border-1 u-border-grey-30 u-first-column u-grey-5 u-table-cell u-table-cell-5">
-                                @prod.ProductName
-                            </td>
-                            <td class="u-border-1 u-border-grey-30 u-table-cell">
+                        @foreach (Products prod in listProducts)
+                        {
+                            <tr style="height: 48px;">
+                                <td class="u-border-1 u-border-grey-30 u-first-column u-grey-5 u-table-cell u-table-cell-5">
+                                    @prod.ProductName
+                                </td>
+                                <td class="u-border-1 u-border-grey-30 u-table-cell">
                                     @prod.Price.ToString("c")
-                            </td>
-                        
-                            <td class="u-border-1 u-border-grey-30 u-table-cell">
-                                <input type="number" min="0"
+                                </td>
+
+                                <td class="u-border-1 u-border-grey-30 u-table-cell">
+                                    <input type="number" min="0"
                                   @bind-value="prod.Quantity" 
                                 />
-                            </td>
-                            <td class="u-border-1 u-border-grey-30 u-table-cell">
+                                </td>
+                                <td class="u-border-1 u-border-grey-30 u-table-cell">
                                     @prod.Sum
-                            </td>
-                            <td class="u-border-1 u-border-grey-30 u-table-cell">
+                                </td>
+                                <td class="u-border-1 u-border-grey-30 u-table-cell">
 
                                     <button class="btn btn-primary" @onclick="(async()=>await UpdateProd(prod))">
-                                    Update</button>
-                              
-                            </td>
-                        </tr>
+                                        Update</button>
+
+                                </td>
+                            </tr>
                         }
                     </tbody>
-                }
-            </table>
-        </div>
-        <h6 class="u-text u-text-default u-text-1">
-            Price: @this.Price.ToString("c") <span style="font-size: 1.875rem;"></span>
+
+                </table>
+
+                </div>
+                <h6 class="u-text u-text-default u-text-1">
+                    Price: @this.Price.ToString("c") <span style="font-size: 1.875rem;"></span>
         </h6>
         <a @onclick="async()=>await AddOrder(this.listProducts,this.Price)"
             class="u-border-2 u-border-hover-palette-2-base u-border-palette-1-base u-btn u-btn-round u-button-style u-none u-radius-50 u-btn-1">
@@ -70,13 +80,16 @@
                     <circle cx="181.333" cy="437.333" r="53.333"></circle>
                     <path d="M509.867,89.6c-2.133-2.133-4.267-4.267-8.533-4.267H96L85.333,29.867c-2.133-4.267-6.4-8.533-10.667-8.533h-64 C4.267,21.333,0,25.6,0,32s4.267,10.667,10.667,10.667h55.467l51.2,260.267c8.533,34.133,38.4,59.733,74.667,59.733h245.333 c6.4,0,10.667-4.267,10.667-10.667c0-6.4-4.267-10.667-10.667-10.667H192c-17.067,0-34.133-8.533-42.667-23.467L460.8,275.2 c4.267,0,8.533-4.267,8.533-8.533L512,96C512,96,512,91.733,509.867,89.6z"></path><circle cx="394.667" cy="437.333" r="53.333"></circle></svg><img></span>
         </a>
+        }
     </div>
+
 </div>
 
 @code {
     public double Price=0;
     public List<Products>? listProducts;
     private readonly shopContext db;
+    private bool bought;
 
     //private double price{ get; set; }
     protected override async Task OnInitializedAsync()
@@ -89,19 +102,20 @@
         //var id = db.Orders.Count();
         if (price > 0)
         {
+            bought = true;
             await Task.WhenAll(
             AddOrderUseCase.ExecuteAsync(products, price), 
             AddProdandOrderIdtoSoldUseCase.EcecuteAsync(products, price)
         );
-            
+
             this.listProducts = null;
             nav.NavigateTo("main");
 
-    //        AddtoSoldItem(products,price);
-    //         await AddOrderUseCase.ExecuteAsync(products,price);
+            //        AddtoSoldItem(products,price);
+            //         await AddOrderUseCase.ExecuteAsync(products,price);
         }
     }
-    
+
     public async Task AddtoSoldItem(List<Products>? products, double price)
     {
         var id = db.Orders.Count();
@@ -133,6 +147,7 @@
 
     private async Task LoadProducts()
     {
+        this.bought = false;
         var list= await loadProductsUseCase.ExecuteAsync();
         this.listProducts = list.ToList();
     }

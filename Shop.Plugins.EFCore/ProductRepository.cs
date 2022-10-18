@@ -58,14 +58,18 @@ namespace Shop.Plugins.EFCore
                 //not enough products, only:
                 int left = prodStorage.StorageQuantity;
             }
-
+        
+      
         }
 
         public async Task<List<Products>> LoadProducts()
         {
             //return await this.db.Products.ToListAsync();
-              return await this.db.Products.Where
+
+            //db.Products.remo  
+            return await this.db.Products.Where
               (x => x!=null).ToListAsync();//not shown these without  active==true            
+
         }
 
         public async Task<Products> GetProductById(int id)

@@ -26,6 +26,7 @@ namespace shop.Plugins.EFCore
             {
                 if (prod != null)
                 {
+                    db.Products.Remove(prod);
                     var lol = new SoldItems
                     {
                         OrdId = db.Orders.Count(),
@@ -36,26 +37,18 @@ namespace shop.Plugins.EFCore
                         Sum = prod.Sum
                     };
                     await db.SoldItems.AddAsync(lol);
-                        
-                    //await db.SoldItems.AddAsync(lol);
-                    //dodac id bo ma problem z dodaniem do solditems
+                   
                 }
                 //  await db.SoldItems.AddAsync(lol);
 
             }
-            //  db.Products.RemoveRange();
-            // db.Remove(db.Products);
-            db.Products.FromSqlRaw("TRUNCATE TABLE Products");
-            //context.Database.ExecuteSqlRaw("TRUNCATE TABLE [TableName]");
-            //nie usuwa sie
+         
             await db.SaveChangesAsync();
-
         }
-
         public async Task <List<SoldItems>> LoadSoldItems(int id)
         {
             var sold = await db.SoldItems.Where(x=>x.OrdId==id).
-                ToListAsync();
+            ToListAsync();
             return sold;
            
         }

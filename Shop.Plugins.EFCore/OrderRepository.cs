@@ -32,9 +32,7 @@ namespace shop.Plugins.EFCore
                 //await AddSoldItems(products, order.Price, order.OrderId);
                 await db.Orders.AddAsync(order);
                 await db.SaveChangesAsync();
-               // this.Smartorders = await this.db.Orders.ToListAsync();
-               var count = await db.Orders.CountAsync();
-                
+           
             }
         }
 
